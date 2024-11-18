@@ -1,67 +1,67 @@
 clients:
-  # Type of client sampling
-  type: simple
+    # Type of client sampling
+    type: simple
 
-  # Total number of clients (edge nodes)
-  total_clients: 2
+    # Total number of clients (edge nodes)
+    total_clients: 2
 
-  # Number of clients selected in each round
-  per_round: 2
+    # Number of clients selected in each round
+    per_round: 2
 
-  # Should the clients compute test accuracy locally?
-  do_test: true
+    # Should the clients compute test accuracy locally?
+    do_test: true
 
 server:
-  address: 127.0.0.1
-  port: 8000
+    address: 127.0.0.1
+    port: 8000
 
 data:
-  # Training and testing dataset for each client
-  datasource:
-    - name: edge1-surface-defect-detection-dataset
-    - name: edge2-surface-defect-detection-dataset
+    # Training and testing dataset for each client
+    datasource:
+        - name: edge1-surface-defect-detection-dataset
+        - name: edge2-surface-defect-detection-dataset
 
-  # Number of samples per partition (adjust if needed)
-  partition_size: 2000
+    # Number of samples per partition (adjust if needed)
+    partition_size: 2000
 
-  # Sampling method: IID or non-IID
-  sampler: iid
+    # Sampling method: IID or non-IID
+    sampler: iid
 
-  # Random seed for sampling
-  random_seed: 1
+    # Random seed for sampling
+    random_seed: 1
 
 trainer:
-  # Type of trainer to use
-  type: basic
+    # Type of trainer to use
+    type: basic
 
-  # Machine learning model to train
-  model_name: surface-defect-detection-model
+    # Machine learning model to train
+    model_name: surface-defect-detection-model
 
-  # Training parameters
-  rounds: 3
-  epochs: 2
-  batch_size: 32
-  max_concurrency: 2
-  target_accuracy: 0.9
+    # Training parameters
+    rounds: 3
+    epochs: 2
+    batch_size: 32
+    max_concurrency: 2
+    target_accuracy: 0.9
 
-  # Optimizer parameters
-  optimizer:
-    type: SGD
-    lr: 0.001
-    momentum: 0.9
-    weight_decay: 0.0
+    # Optimizer parameters
+    optimizer:
+        type: SGD
+        lr: 0.001
+        momentum: 0.9
+        weight_decay: 0.0
 
 algorithm:
-  # Aggregation algorithm
-  type: fedavg
+    # Aggregation algorithm
+    type: fedavg
 
 parameters:
-  # Global parameters for the optimizer
-  optimizer:
-    lr: 0.001
-    momentum: 0.9
-    weight_decay: 0.0
+    # Global parameters for the optimizer
+    optimizer:
+        lr: 0.001
+        momentum: 0.9
+        weight_decay: 0.0
 
-  # Additional training parameters
-  batch_size: 32
-  epochs: 2
+    # Additional training parameters
+    batch_size: 32
+    epochs: 2
