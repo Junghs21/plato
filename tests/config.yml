@@ -12,14 +12,16 @@ clients:
     do_test: true
 
 server:
-    address: 127.0.0.1
-    port: 8000
+  address: 127.0.0.1
+  port: 8000
 
 data:
-    # Training and testing dataset for each client
+  # Training and testing dataset for each client
     datasource:
         - name: edge1-surface-defect-detection-dataset
+        url: "/data/1.txt"
         - name: edge2-surface-defect-detection-dataset
+        url: "/data/2.txt"
 
     # Number of samples per partition (adjust if needed)
     partition_size: 2000
